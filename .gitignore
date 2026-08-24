@@ -1,0 +1,20 @@
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+
+# run outputs (large, reproducible)
+output/
+log/
+
+# external repo cloned+patched by setup_env.sh
+3dgrut/
+
+# large assets distributed separately — see ASSETS.md
+model/
+smpl_models/
+AnimatableGaussians/datasets/
+AnimatableGaussians/results/
+third_party/MPMAvatar/
+piavatar_assets.tar.gz

@@ -1,0 +1,120 @@
+{
+  "sim_params": {
+    "name": "soft_tissue_belly_jump_noatt",
+    "output_path": "output/soft_tissue_belly_jump_noatt",
+    "render_img": true,
+    "compile_video": true,
+    "white_bg": true,
+    "debug": false,
+    "output_ply": true,
+    "belly_attenuation": false
+  },
+  "substep_dt": 0.0002,
+  "smplx_dt": 0.01,
+  "frame_dt": 0.01,
+  "frame_num": 380,
+  "n_grid": 200,
+  "g": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "default_camera_index": -1,
+  "show_hint": false,
+  "mpm_space_vertical_upward_axis": [
+    0,
+    0,
+    1
+  ],
+  "mpm_space_viewpoint_center": [
+    1.1,
+    1,
+    1
+  ],
+  "init_azimuthm": -45.0,
+  "init_elevation": 0.0,
+  "init_radius": 4.5,
+  "move_camera": true,
+  "delta_a": 0.0,
+  "delta_e": 0.0,
+  "delta_r": 0.0,
+  "smplx_path": "./smpl_models",
+  "subject_conditions": [
+    {
+      "human": true,
+      "type": "mesh",
+      "model": "smplx",
+      "model_path": null,
+      "gender": "male",
+      "betas": [
+        0.6,
+        4.8,
+        4.2,
+        3.8,
+        1.7,
+        1.2,
+        0.9,
+        0.5,
+        0.4,
+        0.0
+      ],
+      "osso_path": "./AnimatableGaussians/datasets/Actor01/Sequence1/osso",
+      "pose_path": "./AnimatableGaussians/datasets/pose/AMASS/CMU/01/01_01_poses.npz",
+      "config_path": "./AnimatableGaussians/configs/avatarrex_zzr/avatar.yaml",
+      "wide_y_arm": 0,
+      "wide_z_arm": 10,
+      "wide_z_leg": 10,
+      "velocity_type": "tgt",
+      "velocity_alpha": 0.15,
+      "start_frame": 330,
+      "end_frame": 810,
+      "rotation_degree": [
+        195.0
+      ],
+      "rotation_axis": [
+        2
+      ],
+      "center": [
+        1.8,
+        1,
+        0.8
+      ],
+      "scale": 0.5,
+      "initial_velocity": [
+        0,
+        0,
+        0
+      ],
+      "crop_area": [
+        -10,
+        10,
+        -20,
+        20,
+        -10,
+        10
+      ],
+      "density": 1500,
+      "E": 10000.0,
+      "nu": 0.35,
+      "g": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "g_time": [
+        -1,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opacity_threshold": 0.02,
+      "material": "jelly",
+      "index": 0
+    }
+  ],
+  "boundary_conditions": [
+    {
+      "type": "bounding_box"
+    }
+  ]
+}

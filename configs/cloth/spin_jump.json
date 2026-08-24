@@ -1,0 +1,163 @@
+{
+  "sim_params": {
+    "name": "cloth_spin_jump",
+    "output_path": "output/cloth_spin_jump",
+    "render_img": true,
+    "compile_video": true,
+    "render_3dgrut": true,
+    "image_rotate_cw_90": false,
+    "render_cloth": true,
+    "white_bg": true,
+    "debug": false,
+    "output_ply": true,
+    "use_separable_contact": true,
+    "cloth": {
+      "source": "a1_subset",
+      "obj_path": "third_party/MPMAvatar/data/a1_s1/cloth_sim.obj",
+      "offset": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "thickness": 0.001,
+      "density": 20.0,
+      "E": 10000.0,
+      "nu": 0.3,
+      "gamma": 200.0,
+      "kappa": 1000.0,
+      "friction_angle_deg": 10.0,
+      "gravity": [
+        0.0,
+        0.0,
+        -9.8
+      ],
+      "lbs_pin_top_pct": 0.2,
+      "outward_offset": 0.02,
+      "use_body_mesh_collider": true,
+      "body_mesh_friction": 0.1
+    }
+  },
+  "substep_dt": 1e-05,
+  "smplx_dt": 0.02,
+  "frame_dt": 0.02,
+  "frame_num": 120,
+  "n_grid": 256,
+  "g": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "rpic_damping": 0.5,
+  "default_camera_index": -1,
+  "show_hint": false,
+  "mpm_space_vertical_upward_axis": [
+    0,
+    0,
+    1
+  ],
+  "mpm_space_viewpoint_center": [
+    0.8,
+    1,
+    1
+  ],
+  "init_azimuthm": 230.0,
+  "init_elevation": 0.0,
+  "init_radius": 3.5,
+  "move_camera": true,
+  "delta_a": 0.0,
+  "delta_e": 0.0,
+  "delta_r": 0.0,
+  "smplx_path": "./smpl_models",
+  "subject_conditions": [
+    {
+      "human": true,
+      "type": "mesh",
+      "model": "smplx_a1",
+      "model_path": null,
+      "gender": "neutral",
+      "betas": [
+        0.14,
+        -1.78,
+        -0.46,
+        -0.22,
+        -0.65,
+        0.03,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "betas_override": [
+        -0.15786009,
+        -0.07332151,
+        0.20154738,
+        -0.37708815,
+        0.05291957,
+        -0.19186297,
+        0.06251355,
+        0.06632032,
+        0.19164704,
+        -0.0393217
+      ],
+      "osso_path": "./AnimatableGaussians/datasets/Actor01/Sequence1/osso",
+      "pose_path": "./AnimatableGaussians/datasets/Actor01/Sequence1/actorshq_smpl_params.npz",
+      "pose_npz": "third_party/MPMAvatar/data/a1_s1/a1_amass_spin.npz",
+      "pose_npz_already_zup": true,
+      "config_path": "./AnimatableGaussians/configs/actor01/avatar.yaml",
+      "wide_y_arm": 0,
+      "wide_z_arm": 30,
+      "wide_z_leg": 8,
+      "velocity_type": "tgt",
+      "velocity_alpha": 0.6,
+      "start_frame": 0,
+      "end_frame": 120,
+      "rotation_degree": [
+        195.0
+      ],
+      "rotation_axis": [
+        2
+      ],
+      "center": [
+        1.1,
+        1,
+        0.8
+      ],
+      "scale": 0.5,
+      "initial_velocity": [
+        0,
+        0,
+        0
+      ],
+      "crop_area": [
+        -10,
+        10,
+        -20,
+        20,
+        -10,
+        10
+      ],
+      "density": 1500,
+      "E": 50000.0,
+      "nu": 0.45,
+      "g": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "g_time": [
+        -1,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opacity_threshold": 0.02,
+      "material": "jelly",
+      "index": 0
+    }
+  ],
+  "boundary_conditions": [
+    {
+      "type": "bounding_box"
+    }
+  ]
+}

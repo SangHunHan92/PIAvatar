@@ -1,0 +1,187 @@
+{
+  "sim_params": {
+    "name": "main_low_kick",
+    "output_path": "output/main_low_kick",
+    "render_img": true,
+    "compile_video": true,
+    "white_bg": true,
+    "debug": false,
+    "output_ply": false
+  },
+  "substep_dt": 5e-05,
+  "smplx_dt": 0.02,
+  "frame_dt": 0.02,
+  "frame_num": 210,
+  "n_grid": 200,
+  "g": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "default_camera_index": -1,
+  "show_hint": false,
+  "mpm_space_vertical_upward_axis": [
+    0,
+    0,
+    1
+  ],
+  "mpm_space_viewpoint_center": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "init_azimuthm": 0.0,
+  "init_elevation": 0.0,
+  "init_radius": 4.5,
+  "move_camera": false,
+  "smplx_path": "./smpl_models",
+  "subject_conditions": [
+    {
+      "human": true,
+      "type": "mesh",
+      "model": "smplx",
+      "model_path": null,
+      "gender": "male",
+      "betas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "osso_path": "./AnimatableGaussians/datasets/Actor05/Sequence1/osso",
+      "pose_path": "./AnimatableGaussians/datasets/pose/AMASS/CMU/10/10_01_poses_rightleg_lower_from650_scale0p65.npz",
+      "config_path": "./AnimatableGaussians/configs/avatarrex_zzr/avatar.yaml",
+      "wide_y_arm": 0,
+      "wide_z_arm": 10,
+      "wide_z_leg": 10,
+      "velocity_type": "tgt",
+      "velocity_alpha": 0.4,
+      "start_frame": 540,
+      "end_frame": 750,
+      "rotation_degree": [
+        40.0
+      ],
+      "rotation_axis": [
+        2
+      ],
+      "center": [
+        0.5,
+        1.0,
+        0.8
+      ],
+      "scale": 0.55,
+      "initial_velocity": [
+        -0.05,
+        0.0,
+        0.0
+      ],
+      "crop_area": [
+        -10,
+        10,
+        -20,
+        20,
+        -10,
+        10
+      ],
+      "density": 50,
+      "E": 300000.0,
+      "nu": 0.4,
+      "g": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "g_time": [
+        -1,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opacity_threshold": 0.02,
+      "material": "metal",
+      "index": 0
+    },
+    {
+      "human": true,
+      "type": "mesh",
+      "model": "smplx",
+      "model_path": null,
+      "gender": "male",
+      "betas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "osso_path": "./AnimatableGaussians/datasets/Actor05/Sequence1/osso",
+      "pose_path": "./AnimatableGaussians/datasets/pose/AMASS/CMU/05/05_18_poses.npz",
+      "config_path": "./AnimatableGaussians/configs/avatarrex_zzr/avatar.yaml",
+      "wide_y_arm": 0,
+      "wide_z_arm": 10,
+      "wide_z_leg": 10,
+      "velocity_type": "tgt",
+      "velocity_alpha": 0.4,
+      "start_frame": 0,
+      "end_frame": 210,
+      "rotation_degree": [
+        20.0
+      ],
+      "rotation_axis": [
+        2
+      ],
+      "center": [
+        1.4,
+        1.0,
+        0.8
+      ],
+      "scale": 0.55,
+      "initial_velocity": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "crop_area": [
+        -10,
+        10,
+        -20,
+        20,
+        -10,
+        10
+      ],
+      "density": 150,
+      "E": 300000.0,
+      "nu": 0.4,
+      "g": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "g_time": [
+        -1,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opacity_threshold": 0.02,
+      "material": "metal",
+      "index": 1
+    }
+  ],
+  "boundary_conditions": [
+    {
+      "type": "bounding_box"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+# torch==2.0.1
+# torchvision==0.15.2
+glfw==2.4.0
+libigl
+joblib==0.17.0
+# numpy==1.21.6
+opencv-python==4.5.5.64
+plyfile==1.0.2
+PyOpenGL==3.1.0
+pyrender==0.1.45
+# git+https://github.com/facebookresearch/pytorch3d.git@stable
+# pytorch3d==0.7.4
+# pyyaml==5.3.1
+# setuptools==50.3.1
+# scikit-image==0.17.2
+# scikit-learn==0.23.2
+screeninfo==0.8.1
+tqdm==4.50.2
+trimesh==3.9.15
+tensorboard
+# # install diff-gaussian-rasterization-depth-alpha
+# cd gaussians/diff_gaussian_rasterization_depth_alpha
+# python setup.py install
+# cd ../..
+# # install styleunet
+# cd network/styleunet
+# python setup.py install
+# cd ../..

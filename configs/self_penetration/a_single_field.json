@@ -1,0 +1,235 @@
+{
+  "sim_params": {
+    "name": "selfpen_a_single_field",
+    "output_path": "output/selfpen_a_single_field",
+    "render_img": true,
+    "compile_video": true,
+    "white_bg": true,
+    "debug": false,
+    "output_ply": true,
+    "use_separable_contact": false,
+    "contact_eps": 1e-15,
+    "use_lbs_decouple": false
+  },
+  "substep_dt": 0.0002,
+  "smplx_dt": 0.02,
+  "frame_dt": 0.02,
+  "frame_num": 200,
+  "n_grid": 220,
+  "g": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "default_camera_index": -1,
+  "show_hint": false,
+  "mpm_space_vertical_upward_axis": [
+    0,
+    0,
+    1
+  ],
+  "mpm_space_viewpoint_center": [
+    0.9,
+    1,
+    0.42
+  ],
+  "init_azimuthm": 335.0,
+  "init_elevation": 15.0,
+  "init_radius": 4.0,
+  "move_camera": true,
+  "delta_a": 0.0,
+  "delta_e": 0.0,
+  "delta_r": 0.0,
+  "smplx_path": "./smpl_models",
+  "subject_conditions": [
+    {
+      "human": true,
+      "type": "mesh",
+      "model": "smplx",
+      "model_path": null,
+      "gender": "male",
+      "betas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "osso_path": "./AnimatableGaussians/datasets/Actor05/Sequence1/osso",
+      "pose_path": "./AnimatableGaussians/datasets/pose/AMASS/CMU/11/11_01_poses.npz",
+      "config_path": "./AnimatableGaussians/configs/avatarrex_zzr/avatar.yaml",
+      "wide_y_arm": 0,
+      "wide_z_arm": 5,
+      "wide_z_leg": 5,
+      "velocity_type": "rel",
+      "velocity_alpha": 0.4,
+      "start_frame": 160,
+      "end_frame": 460,
+      "rotation_degree": [
+        20.0
+      ],
+      "rotation_axis": [
+        2
+      ],
+      "center": [
+        0.5,
+        0.82,
+        0.33
+      ],
+      "scale": 0.3,
+      "initial_velocity": [
+        0,
+        0,
+        0
+      ],
+      "crop_area": [
+        -10,
+        10,
+        -20,
+        20,
+        -10,
+        10
+      ],
+      "density": 500,
+      "E": 100000.0,
+      "nu": 0.35,
+      "g": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "g_time": [
+        83,
+        0.0,
+        0.0,
+        -0.5
+      ],
+      "opacity_threshold": 0.02,
+      "material": "jelly",
+      "index": 0
+    },
+    {
+      "human": true,
+      "type": "mesh",
+      "model": "smplx",
+      "model_path": null,
+      "gender": "male",
+      "betas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "osso_path": "./AnimatableGaussians/datasets/Actor05/Sequence1/osso",
+      "pose_path": "./AnimatableGaussians/datasets/pose/AMASS/CMU/11/11_01_poses_modified.npz",
+      "config_path": "./AnimatableGaussians/configs/avatarrex_zzr/avatar.yaml",
+      "wide_y_arm": 5,
+      "wide_z_arm": 5,
+      "wide_z_leg": 10,
+      "velocity_type": "gt",
+      "velocity_alpha": 0.3,
+      "start_frame": 370,
+      "end_frame": 670,
+      "rotation_degree": [
+        195.0
+      ],
+      "rotation_axis": [
+        2
+      ],
+      "center": [
+        1.5,
+        0.7,
+        0.43
+      ],
+      "scale": 0.3,
+      "initial_velocity": [
+        0,
+        0,
+        0
+      ],
+      "crop_area": [
+        -10,
+        10,
+        -20,
+        20,
+        -10,
+        10
+      ],
+      "density": 20000,
+      "E": 100000.0,
+      "nu": 0.3,
+      "g": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "g_time": [
+        -1,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opacity_threshold": 0.02,
+      "material": "jelly",
+      "index": 1
+    },
+    {
+      "human": false,
+      "type": "gaussian",
+      "model": "gaussian",
+      "model_path": "./model/pillow2sofa_whitebg-trained/",
+      "rotation_degree": [
+        0.0
+      ],
+      "rotation_axis": [
+        0
+      ],
+      "center": [
+        1.1,
+        0.9,
+        0.3
+      ],
+      "scale": 0.6,
+      "initial_velocity": [
+        0,
+        0,
+        0
+      ],
+      "crop_area": [
+        -0.41,
+        0.1,
+        0.1,
+        0.5,
+        0.1,
+        0.6
+      ],
+      "density": 450,
+      "E": 10000.0,
+      "nu": 0.3,
+      "g": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opacity_threshold": -100,
+      "material": "jelly",
+      "index": 2
+    }
+  ],
+  "boundary_conditions": [
+    {
+      "type": "bounding_box"
+    }
+  ]
+}

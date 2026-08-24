@@ -1,0 +1,163 @@
+{
+  "sim_params": {
+    "name": "stickiness_a_alpha0",
+    "output_path": "output/stickiness_a_alpha0",
+    "render_img": true,
+    "compile_video": true,
+    "white_bg": true,
+    "debug": false,
+    "output_ply": true,
+    "use_separable_contact": true,
+    "contact_eps": 1e-15
+  },
+  "substep_dt": 2e-05,
+  "smplx_dt": 0.02,
+  "frame_dt": 0.02,
+  "frame_num": 60,
+  "n_grid": 200,
+  "g": [
+    0,
+    0,
+    0
+  ],
+  "default_camera_index": -1,
+  "show_hint": false,
+  "mpm_space_vertical_upward_axis": [
+    0,
+    0,
+    1
+  ],
+  "mpm_space_viewpoint_center": [
+    0.8,
+    1,
+    1
+  ],
+  "init_azimuthm": 10,
+  "init_elevation": 0,
+  "init_radius": 3.5,
+  "move_camera": true,
+  "delta_a": 0,
+  "delta_e": 0,
+  "delta_r": 0,
+  "smplx_path": "./smpl_models",
+  "subject_conditions": [
+    {
+      "human": true,
+      "type": "mesh",
+      "model": "smplx",
+      "model_path": null,
+      "gender": "male",
+      "betas": [
+        0.6,
+        4.8,
+        4.2,
+        3.8,
+        1.7,
+        1.2,
+        0.9,
+        0.5,
+        0.4,
+        0
+      ],
+      "osso_path": "./AnimatableGaussians/datasets/Actor01/Sequence1/osso",
+      "pose_path": "./AnimatableGaussians/datasets/pose/AMASS/CMU/05/05_01_poses.npz",
+      "config_path": "./AnimatableGaussians/configs/avatarrex_zzr/avatar.yaml",
+      "wide_y_arm": 0,
+      "wide_z_arm": 0,
+      "wide_z_leg": 5,
+      "velocity_type": "tgt",
+      "velocity_alpha": 0.0,
+      "start_frame": 0,
+      "end_frame": 300,
+      "rotation_degree": [
+        195
+      ],
+      "rotation_axis": [
+        2
+      ],
+      "center": [
+        1.1,
+        1,
+        0.8
+      ],
+      "scale": 0.5,
+      "initial_velocity": [
+        0,
+        0,
+        0
+      ],
+      "crop_area": [
+        -10,
+        10,
+        -20,
+        20,
+        -10,
+        10
+      ],
+      "density": 1500,
+      "E": 10000,
+      "nu": 0.4,
+      "g": [
+        0,
+        0,
+        0
+      ],
+      "g_time": [
+        -1,
+        0,
+        0,
+        0
+      ],
+      "opacity_threshold": 0.02,
+      "material": "jelly",
+      "index": 0
+    },
+    {
+      "human": false,
+      "type": "mesh",
+      "model": "mesh_glb",
+      "model_path": "./model/MeshAsset/football",
+      "rotation_degree": [
+        0
+      ],
+      "rotation_axis": [
+        0
+      ],
+      "center": [
+        0.8,
+        0.98,
+        0.9
+      ],
+      "scale": 0.001,
+      "initial_velocity": [
+        0.3,
+        0,
+        0
+      ],
+      "crop_area": [
+        -100,
+        100,
+        -100,
+        100,
+        -100,
+        100
+      ],
+      "density": 500,
+      "E": 100000,
+      "nu": 0.45,
+      "g": [
+        0,
+        0,
+        -1.5
+      ],
+      "opacity_threshold": 0.02,
+      "material": "jelly",
+      "index": 1
+    }
+  ],
+  "boundary_conditions": [
+    {
+      "type": "bounding_box"
+    }
+  ]
+}

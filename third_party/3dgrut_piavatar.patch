@@ -1,0 +1,75 @@
+diff --git a/threedgrut/model/model.py b/threedgrut/model/model.py
+index 415c3b0..f3a9bc3 100644
+--- a/threedgrut/model/model.py
++++ b/threedgrut/model/model.py
+@@ -739,12 +739,15 @@ class MixtureOfGaussians(torch.nn.Module):
+         for idx, attr_name in enumerate(rot_names):
+             mogt_rotation[:, idx] = np.asarray(plydata.elements[0][attr_name])
+ 
+-        self.positions = torch.nn.Parameter(torch.tensor(mogt_pos, dtype=self.positions.dtype,device=self.device))
+-        self.features_albedo = torch.nn.Parameter(torch.tensor(mogt_albedo, dtype=self.features_albedo.dtype,device=self.device))
+-        self.features_specular = torch.nn.Parameter(torch.tensor(mogt_specular,dtype=self.features_specular.dtype,device=self.device))
+-        self.density = torch.nn.Parameter(torch.tensor(mogt_densities,dtype=self.density.dtype,device=self.device))
+-        self.scale = torch.nn.Parameter(torch.tensor(mogt_scales,dtype=self.scale.dtype,device=self.device))
+-        self.rotation = torch.nn.Parameter(torch.tensor(mogt_rotation,dtype=self.rotation.dtype,device=self.device))
++        # mogt_albedo = np.clip(mogt_albedo, -1.0, 1.0)
++        # mogt_specular = np.clip(mogt_specular, -1.0, 1.0)
++        
++        self.positions = torch.nn.Parameter(torch.tensor(mogt_pos, dtype=self.positions.dtype,device=self.device)) # [N, 3]
++        self.features_albedo = torch.nn.Parameter(torch.tensor(mogt_albedo, dtype=self.features_albedo.dtype,device=self.device)) # [N, 3]
++        self.features_specular = torch.nn.Parameter(torch.tensor(mogt_specular,dtype=self.features_specular.dtype,device=self.device)) # [N, 45]        
++        self.density = torch.nn.Parameter(torch.tensor(mogt_densities,dtype=self.density.dtype,device=self.device)) # [N, 1]
++        self.scale = torch.nn.Parameter(torch.tensor(mogt_scales,dtype=self.scale.dtype,device=self.device)) # [N, 3]
++        self.rotation = torch.nn.Parameter(torch.tensor(mogt_rotation,dtype=self.rotation.dtype,device=self.device)) # [N, 4]
+ 
+         self.n_active_features = self.max_n_features
+ 
+diff --git a/threedgrut_playground/engine.py b/threedgrut_playground/engine.py
+index d91c9ee..9c5059d 100644
+--- a/threedgrut_playground/engine.py
++++ b/threedgrut_playground/engine.py
+@@ -358,7 +358,8 @@ class Primitives:
+         default_materials = dict(
+             solid=PBRMaterial(
+                 material_id=0,
+-                diffuse_map=torch.tensor([130 / 255.0, 193 / 255.0, 255 / 255.0, 1.0],
++                # diffuse_map=torch.tensor([130 / 255.0, 193 / 255.0, 255 / 255.0, 1.0],
++                diffuse_map=torch.tensor([255 / 255.0, 193 / 255.0, 130 / 255.0, 1.0],
+                                          device=device, dtype=torch.float32).expand(2, 2, 4),
+                 diffuse_factor=torch.ones(4, device=device, dtype=torch.float32),
+                 emissive_factor=torch.zeros(3, device=device, dtype=torch.float32),
+@@ -522,9 +523,9 @@ class Primitives:
+             constructor = Primitives.PROCEDURAL_SHAPES[geometry_type]
+             mesh = constructor(device)
+         else:
+-            mesh_path = self.assets[geometry_type]
+-            mesh = load_mesh(mesh_path, device)
+-            materials = load_materials(mesh, device)
++            mesh_path = self.assets[geometry_type] # not use, pre_saved_asset
++            mesh = load_mesh(mesh_path, device) # kaolin.rep.SurfaceMesh
++            materials = load_materials(mesh, device) ####
+             if len(materials) > 0:
+                 load_missing_material_info(mesh_path, materials, device)
+                 material_index_mapping = self.register_materials(materials=materials, model_name=geometry_type)
+@@ -534,6 +535,7 @@ class Primitives:
+                 mesh.material_assignments = material_index_mapping[material_id].int()
+         # Always use default material, if no materials were specified
+         mesh.material_assignments = torch.max(mesh.material_assignments, torch.zeros_like(mesh.material_assignments))
++        # mesh.material_assignments = torch.max(mesh.material_assignments, torch.ones_like(mesh.material_assignments))
+         return mesh
+ 
+     def recompute_stacked_buffers(self) -> None:
+@@ -722,9 +724,10 @@ class Engine3DGRUT:
+             scene_scale=scene_scale,
+             device=self.device
+         )
+-        self.primitives.add_primitive(
+-            geometry_type='Sphere', primitive_type=OptixPrimitiveTypes.GLASS, device=self.device
+-        )
++        # self.primitives.add_primitive(
++        #     # geometry_type='Sphere', primitive_type=OptixPrimitiveTypes.GLASS, device=self.device
++        #     geometry_type='Sphere', primitive_type=OptixPrimitiveTypes.DIFFUSE, device=self.device
++        # )
+         self.rebuild_bvh(self.scene_mog)
+         if self.envmap is not None:
+             self.force_white_bg = False
