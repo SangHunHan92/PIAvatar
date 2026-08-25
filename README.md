@@ -21,7 +21,10 @@ This repository contains the code of PIAvatar, an MPM-based simulator for physic
 
 <p align="center"><img src="assets/method.png" width="95%" alt="PIAvatar framework"/></p>
 
-The user-defined kinematic velocity is decoupled from the deformation-gradient update, so prescribed motion produces no restorative stress while external contacts still do. An embedded skeleton tracks the pose in closed form (Kabsch + LBS), providing the kinematic velocity for the next frame.
+PIAvatar builds on two components (Sec. 4 of the [paper](https://arxiv.org/abs/2606.21162)):
+
+- **Kinematic deformation gradient decoupling** — the user-defined kinematic velocity is excluded from the deformation-gradient update (F ← F (F<sup>k</sup>)<sup>-1</sup>), so prescribed motion produces no restorative stress while external contacts still do.
+- **Skeleton-based pose regression** — an embedded skeleton tracks the avatar's pose in closed form (Kabsch + LBS) even under non-rigid deformation, providing the kinematic velocity for the next frame.
 
 ## Installation
 
@@ -45,7 +48,7 @@ tar -xzf piavatar_assets.tar.gz
 ```
 
 Sources, licenses, and credits for the bundled data are listed in [ASSETS.md](ASSETS.md).
-The loose-garment demo additionally needs `a1_canonical_assets.npz`, which we cannot redistribute — see ASSETS.md §C; all other demos run out of the box.
+The loose-garment demo additionally needs `a1_canonical_assets.npz` — see [ASSETS.md](ASSETS.md); all other demos run out of the box.
 
 ## Running the Demos
 
