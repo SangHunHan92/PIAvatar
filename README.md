@@ -49,8 +49,17 @@ Manual install: follow the same steps in `setup_env.sh` — every version is pin
 
 ## 2. Assets
 
-The repository contains code only. Download `piavatar_assets.tar.gz`
-(≈550 MB) from **[link]** and extract it in the repository root — it contains
+The repository contains code only. Download
+[`piavatar_assets.tar.gz`](https://drive.google.com/file/d/1lne-a_8KgmWxA3vScRxJiqS4hm5l8sNI/view?usp=sharing)
+(≈550 MB) and extract it in the repository root:
+
+```bash
+pip install gdown
+gdown 1lne-a_8KgmWxA3vScRxJiqS4hm5l8sNI
+tar -xzf piavatar_assets.tar.gz
+```
+
+It contains
 everything the demos need, including redistributed third-party data (SMPL-X,
 AMASS clips, AvatarReX preprocessed data, VPoser) under their original
 licenses; sources and credits are listed in [ASSETS.md](ASSETS.md).
