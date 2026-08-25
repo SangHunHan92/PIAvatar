@@ -22,7 +22,7 @@ Ours:
 | `AnimatableGaussians/datasets/Actor{01,05}/Sequence1/osso/osso_per_parts/part_split_meshes.glb` | 3.3 MB ×2 | OSSO skeleton meshes fitted to the demo bodies (bone particles) |
 | `AnimatableGaussians/datasets/Actor01/Sequence1/actorshq_smpl_params.npz` | 1.5 MB | body shape params for the cloth demo body |
 | `model/pillow2sofa_whitebg-trained/point_cloud/iteration_30000/` | 151 MB | 3DGS reconstruction of the pillow (our BlenderNeRF capture) |
-| `model/MeshAsset/{football,rucksack}/*.glb` | 15 MB | object meshes, via Sketchfab (links and credits below) |
+| `model/MeshAsset/{football,rucksack}/*.glb` | 15 MB | object meshes |
 
 Redistributed third-party data (kept in the archive for convenience — each item
 remains under its original license; official sources below):
@@ -50,11 +50,6 @@ repository's download links and place/derive
 (cloth template vertices/faces/LBS weights + body canonical assets in the
 schema read by `hetero_cloth/cloth_integration.py`). All other demos run
 without it.
-
-## Object mesh credits (Sketchfab)
-
-- `football.glb`, `rucksack.glb` — CC-licensed Sketchfab assets; **[add the
-  exact asset URLs and creator names here before release]**.
 
 ## Optional avatar checkpoints (not needed by any bundled demo)
 

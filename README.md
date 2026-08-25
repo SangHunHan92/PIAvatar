@@ -82,7 +82,7 @@ PIAvatar/
 │   ├── Actor01/Sequence1/actorshq_smpl_params.npz
 │   ├── avatarrex_zzr/{calibration_full.json,smpl_params.npz,smpl_pos_map/}  # AG preprocessed data (SMPL-X loader)
 │   └── pose/AMASS/CMU/**/*_poses.npz                                  # (*)
-├── model/MeshAsset/{football,rucksack}/*.glb               # objects (Sketchfab, CC-BY)
+├── model/MeshAsset/{football,rucksack}/*.glb               # object meshes
 ├── model/pillow2sofa_whitebg-trained/point_cloud/...       # 3DGS pillow (BlenderNeRF)
 ├── data/render/                                            # renderer bootstrap (ships with the repo)
 ├── data/render/{gs_seed/point_cloud.ply, mesh_assets/sphere.obj, cameras.json}   # renderer bootstrap
