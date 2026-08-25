@@ -1,5 +1,9 @@
 # PIAvatar: Physically Interactive Avatars via Deformation Gradient Decoupling
 
+[[Paper](https://arxiv.org/abs/2606.21162)]
+
+<p align="center"><img src="assets/teaser.gif" width="90%" alt="PIAvatar demos: contact without stickiness, self-penetration-free avatar interaction, loose-garment simulation"/></p>
+
 Official code for **PIAvatar** — an MPM-based avatar simulation framework that
 (1) decouples the user-defined kinematic velocity from the deformation-gradient
 update so that pose-driven motion induces no restorative stress, and
@@ -19,6 +23,15 @@ experiments in the paper:
 | **Loose-garment** simulation (coupled thin-shell cloth) | `simulation_with_cloth.py` | `configs/cloth/spin_jump.json` |
 
 The VLM-driven parameter optimisation is not part of this release.
+
+## Method
+
+<p align="center"><img src="assets/method.png" width="95%" alt="PIAvatar framework: velocity decoupling, physics interaction, skeleton-based pose regression"/></p>
+
+The user-defined kinematic velocity is excluded from the deformation-gradient
+update (left), so prescribed motion produces no restorative stress while
+external contacts still do. An embedded skeleton tracks the pose in closed form
+(Kabsch + LBS, right), providing the kinematic velocity for the next frame.
 
 ---
 
@@ -287,7 +300,7 @@ license, following [2K2K](https://github.com/SangHunHan92/2K2K).
 @article{han2025piavatar,
   title   = {PIAvatar: Physically Interactive Avatars via Deformation Gradient Decoupling},
   author  = {Han, Sang-Hun and Park, Min-Gyu and Shin, Jisu and Shin, Seunghyun and Park, Jin-Hwi and Jeon, Hae-Gon},
-  journal = {arXiv preprint},
-  year    = {2025}
+  journal = {arXiv preprint arXiv:2606.21162},
+  year    = {2026}
 }
 ```
